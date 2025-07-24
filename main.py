@@ -8,27 +8,27 @@ import requests
 
 class Main:
     def __init__(self):
-        self.GUILD_ID = input('[>] Guild ID: ')
-        self.CHANNEL_ID = input('[>] Channel ID: ')
-        self.MESSAGE_ID = input('[>] Message ID: ')
+        self.GUILD_ID = input('[>] Guild ID: 1233297730231730190')
+        self.CHANNEL_ID = input('[>] Channel ID: 1193539997245120623')
+        self.MESSAGE_ID = input('[>] Message ID: 1378340171736551566')
         REASON = input(
             '\n[1] Illegal content\n'
             '[2] Harassment\n'
-            '[3] Spam or phishing links\n'
+            '[3] Spam or bad behaviour\n'
             '[4] Self-harm\n'
-            '[5] NSFW content\n\n'
-            '[>] Reason: '
+            '[5] BAD content\n\n'
+            '[>] Reason: The reason is she was doing act like very fake people to anyone and trying to be cool and i have a problem with her about too'
         )
 
         if REASON.upper() in ('1', 'ILLEGAL CONTENT'):
             self.REASON = 0
         elif REASON.upper() in ('2', 'HARASSMENT'):
             self.REASON = 1
-        elif REASON.upper() in ('3', 'SPAM OR PHISHING LINKS'):
+        elif REASON.upper() in ('3', 'SPAM OR bad behaviour'):
             self.REASON = 2
         elif REASON.upper() in ('4', 'SELF-HARM'):
             self.REASON = 3
-        elif REASON.upper() in ('5', 'NSFW CONTENT'):
+        elif REASON.upper() in ('5', 'BAD CONTENT'):
             self.REASON = 4
         else:
             print('\n[!] Reason invalid.')
@@ -43,7 +43,7 @@ class Main:
         self.RESPONSES = {
             '401: Unauthorized': '[!] Invalid Discord token.',
             'Missing Access': '[!] Missing access to channel or guild.',
-            'You need to verify your account in order to perform this action.': '[!] Unverified.'
+            'You need to verify your account in order to perform this action.': '[!] verified.'
         }
         self.sent = 0
         self.errors = 0
@@ -82,7 +82,7 @@ class Main:
     def _multi_threading(self):
         threading.Thread(target=self._update_title).start()
         while True:
-            if threading.active_count() <= 300:
+            if threading.active_count() <= 10:
                 threading.Thread(target=self._reporter).start()
 
     def setup(self):
